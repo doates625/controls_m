@@ -11,8 +11,10 @@ classdef ClampLimiter < handle
     methods (Access = public)
         function obj = ClampLimiter(varargin)
             %CLAMPLIMITER Construct an instance of this class
+            %   
             %   obj = CLAMPLIMITER(x_min, x_max) will limit inputs x to
             %       range [y_min, y_max]
+            %   
             %   obj = CLAMPLIMITER(y_max) will limit inputs x to
             %       range [-y_max, +y_max]
             if nargin == 2

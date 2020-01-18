@@ -1,5 +1,6 @@
 classdef Integrator < handle
     %INTEGRATOR Class for asynchronous numerical integration
+    %   
     %   Author: Dan Oates (WPI Class of 2020)
     
     properties
@@ -19,7 +20,9 @@ classdef Integrator < handle
         
         function x_int = update(obj, x, delta_t)
             %UPDATE Add x to integral
+            %   
             %   x_int = UPDATE(obj, x, delta_t) Adds x scaled by delta_t
+            %   
             %   x_int = UPDATE(obj, x) Sets delta_t to measured time in
             %   seconds since last call to update(...)
             

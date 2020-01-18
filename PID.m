@@ -1,5 +1,6 @@
 classdef PID < handle
     %PID Class for discrete-time PID control
+    %   
     %   Author: Dan Oates (WPI Class of 2020)
     
     properties (SetAccess = protected)
@@ -24,14 +25,15 @@ classdef PID < handle
     methods
         function obj = PID(k_p, k_i, k_d, u_min, u_max, f_ctrl)
             %obj = PID(k_p, k_i, k_d, u_min, u_max, f_ctrl)
-            %   Create discrete-time PID controller
+            %   Construct discrete-time PID controller
+            %   
             %   Inputs:
-            %       k_p = P-gain
-            %       k_i = I-gain
-            %       k_d = D-gain
-            %       u_min = Min output
-            %       u_max = Max output
-            %       f_ctrl = Ctrl frequency [Hz]
+            %   - k_p = P-gain
+            %   - k_i = I-gain
+            %   - k_d = D-gain
+            %   - u_min = Min output
+            %   - u_max = Max output
+            %   - f_ctrl = Ctrl frequency [Hz]
             obj.f_ctrl = f_ctrl;
             obj.t_ctrl = 1 / f_ctrl;
             obj.set_gains(k_p, k_i, k_d);
@@ -78,13 +80,16 @@ classdef PID < handle
         end
         
         function u = update(obj, err, ff, sat)
-            %u = UPDATE(obj, err, ff, sat) Update controller
+            %u = UPDATE(obj, err, ff, sat)
+            %   Update controller
             %   Inputs:
-            %       err = Setpoint error
-            %       ff = Feed-forward output [default 0]
-            %       sat = Saturation flag [logical]
+            %   - err = Setpoint error
+            %   - ff = Feed-forward output [default 0]
+            %   - sat = Saturation flag [logical]
+            %   
             %   Outputs:
-            %       u = Control output
+            %   - u = Control output
+            %   
             %   The saturation flag defaults to false. If true, integral
             %   accumulation is stopped to prevent windup.
             

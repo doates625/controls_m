@@ -19,8 +19,10 @@ classdef SlewLimiter < handle
     methods (Access = public)
         function obj = SlewLimiter(varargin)
             %SLEWLIMITER Construct an instance of this class
+            %
             %   obj = SLEWLIMITER(v_min, v_max) will limit rate of inputs
             %       x to range [v_min, v_max]
+            %   
             %   obj = SLEWLIMITER(v_max) will limit rate of inputs
             %       x to range [-v_max, +v_max]
             if nargin == 2
@@ -49,8 +51,10 @@ classdef SlewLimiter < handle
         
         function x = update(obj, x, delta_t)
             %UPDATE Slew-limits x
+            %   
             %   x = UPDATE(obj, x, delta_t) Slew-limits x assuming a time
             %       delta_t has elapsed since last call to update(...)
+            %   
             %   x = UPDATE(obj, x) Sets delta_t to the measured time in
             %       seconds since the last call to update(...)
             if obj.reset_
