@@ -15,7 +15,7 @@ classdef Integrator < handle
             %   obj = INTEGRATOR() Initial value = 0
             if nargin < 1, x_init = 0; end
             obj.x_int = x_init;
-            obj.timer = Timer();
+            obj.timer = timing.Timer();
         end
         
         function x_int = update(obj, x, delta_t)

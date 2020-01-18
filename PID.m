@@ -119,7 +119,7 @@ classdef PID < handle
             
             % Combine
             obj.u = obj.u_p + obj.u_i + obj.u_d + ff;
-            obj.u = clamp(obj.u, obj.u_min, obj.u_max);
+            obj.u = controls.clamp(obj.u, obj.u_min, obj.u_max);
             u = obj.u;
         end
         
@@ -134,4 +134,3 @@ classdef PID < handle
         end
     end
 end
-
