@@ -36,7 +36,7 @@ classdef SlewLimiter < handle
             end
             obj.x_prev = 0;
             obj.reset_ = 1;
-            obj.timer = Timer();
+            obj.timer = timing.Timer();
         end
         
         function set_min(obj, v_min)
@@ -68,7 +68,7 @@ classdef SlewLimiter < handle
                 delta_x_min = obj.v_min * delta_t;
                 delta_x_max = obj.v_max * delta_t;
                 delta_x = x - obj.x_prev;
-                delta_x = clamp(delta_x, delta_x_min, delta_x_max);
+                delta_x = controls.clamp(delta_x, delta_x_min, delta_x_max);
                 x = obj.x_prev + delta_x;
             end
             obj.x_prev = x;

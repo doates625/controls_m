@@ -40,7 +40,7 @@ classdef ClampLimiter < handle
         
         function y = update(obj, x)
             %y = UPDATE(obj, x) Returns x clamped to range [y_min, y_max]
-            y = clamp(x, obj.y_min, obj.y_max);
+            y = controls.clamp(x, obj.y_min, obj.y_max);
         end
     end
 end
