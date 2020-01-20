@@ -13,9 +13,10 @@ classdef Integrator < handle
             %INTEGRATOR Construct async integrator
             %   obj = INTEGRATOR(x_init) Initial value = x_init
             %   obj = INTEGRATOR() Initial value = 0
+            import('timing.Timer');
             if nargin < 1, x_init = 0; end
             obj.x_int = x_init;
-            obj.timer = timing.Timer();
+            obj.timer = Timer();
         end
         
         function x_int = update(obj, x, delta_t)

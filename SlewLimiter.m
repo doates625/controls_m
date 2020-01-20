@@ -25,6 +25,7 @@ classdef SlewLimiter < handle
             %   
             %   obj = SLEWLIMITER(v_max) will limit rate of inputs
             %       x to range [-v_max, +v_max]
+            import('timing.Timer');
             if nargin == 2
                 obj.v_min = varargin{1};
                 obj.v_max = varargin{2};
@@ -36,7 +37,7 @@ classdef SlewLimiter < handle
             end
             obj.x_prev = 0;
             obj.reset_ = 1;
-            obj.timer = timing.Timer();
+            obj.timer = Timer();
         end
         
         function set_min(obj, v_min)
@@ -57,6 +58,7 @@ classdef SlewLimiter < handle
             %   
             %   x = UPDATE(obj, x) Sets delta_t to the measured time in
             %       seconds since the last call to update(...)
+            import('controls.clamp');
             if obj.reset_
                 obj.reset_ = 0;
                 obj.timer.tic();
@@ -68,7 +70,7 @@ classdef SlewLimiter < handle
                 delta_x_min = obj.v_min * delta_t;
                 delta_x_max = obj.v_max * delta_t;
                 delta_x = x - obj.x_prev;
-                delta_x = controls.clamp(delta_x, delta_x_min, delta_x_max);
+                delta_x = clamp(delta_x, delta_x_min, delta_x_max);
                 x = obj.x_prev + delta_x;
             end
             obj.x_prev = x;

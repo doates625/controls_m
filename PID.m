@@ -93,6 +93,9 @@ classdef PID < handle
             %   The saturation flag defaults to false. If true, integral
             %   accumulation is stopped to prevent windup.
             
+            % Imports
+            import('controls.clamp');
+            
             % P-control
             obj.u_p = obj.k_p * err;
             
@@ -119,7 +122,7 @@ classdef PID < handle
             
             % Combine
             obj.u = obj.u_p + obj.u_i + obj.u_d + ff;
-            obj.u = controls.clamp(obj.u, obj.u_min, obj.u_max);
+            obj.u = clamp(obj.u, obj.u_min, obj.u_max);
             u = obj.u;
         end
         
