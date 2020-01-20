@@ -13,7 +13,7 @@ digital signal processing. The files in this package are described below:
 - clamp : Function to clamp limit the range of a signal
 - wrap : Function to modulo limit the range of a signal
 
-### Dependencies
+### Package Dependencies
 - [timing_m](https://github.com/doates625/timing_m.git)
 
 ### Cloning and Submodules
