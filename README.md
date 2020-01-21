@@ -3,8 +3,7 @@ Matlab package for control systems and DSP
 Written by Dan Oates (WPI Class of 2020)
 
 ### Description
-This package contains classes and functions relating to control systems and
-digital signal processing. The files in this package are described below:
+This package contains classes and functions relating to control systems and digital signal processing. The files in this package are described below:
 
 - PID : Class for discrete-time PID control
 - Integrator : Class for asynchronous numerical integration
